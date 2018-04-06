@@ -1,16 +1,63 @@
 <html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="style.css" type="text/css"/>
+	<script type="text/javascript" src="osdetails.js"></script>
+
+</head>
     <body>
-      <h1>BugCatcher</h1>
-	  <h1>You gotta catch'em all!</h1>
-	  <br>
-	  <br>
-	  <br>
-		<form>
-			Summary:<br>
-			<input type="text" name="summary"><br>
-			Description:<br>
-			<input type="text" name="description">
-			<input type="submit" value="Submit">
-		</form> 
+      <h1 align="center">BugCatcher</h1>
+	  <h3 align="center">You gotta catch'em all!</h3>
+		<div id = "BugCatcher">
+
+			<div align="center">Reproducibility </div>
+			<select align="center">
+  				<option value="always">Always</option>
+  				<option value="sometimes">Sometimes</option>
+  				<option value="random">Random</option>
+ 				<option value="have_not_tried">Have not tried</option>
+ 				<option value="unable_to_reproduce">Unable to reproduce</option>
+ 				<option value="na">N/A</option>
+			</select>
+
+			<div align="center">Severity </div>
+			<select>
+  				<option value="feature">Feature</option>
+  				<option value="trivial">Trivial</option>
+  				<option value="text">Text</option>
+ 				<option value="tweak">Tweak</option>
+ 				<option value="minor">Minor</option>
+ 				<option value="major">Major</option>
+ 				<option value="crash">Crash</option>
+ 				<option value="block">Block</option>
+			</select>
+
+			<div align="center">Priority </div>
+			<select>
+  				<option value="none">None</option>
+  				<option value="blahy">Low</option>
+  				<option value="tekst">Normal</option>
+ 				<option value="poprawka">High</option>
+ 				<option value="drobny">Urgent</option>
+ 				<option value="wazny">Immediate</option>
+			</select>
+
+			<div align="center" width>Summary</div>
+			<textarea style="height: 60px" placeholder="Name the bug :)"></textarea>
+
+			<div  align="center">Description</div>
+			<textarea style="height: 160px" placeholder="Description of your bug. The character limit is 999"></textarea>
+
+			<div align="center">Details</div>
+			<textarea id = "details" style="height: 75px" placeholder="If you can't see information about your operating system, complete please"></textarea>
+
+			<div align="center">Attached photo</div>
+
+			<image width="250" height="250" src="media.jpg" >
+
+			<div>
+  				<input type="button" value="Report" style="display: block; margin: 0 auto;">
+			</div>
+		</div> 
     </body>
   </html>
