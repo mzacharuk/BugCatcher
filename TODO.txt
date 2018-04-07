@@ -1,0 +1,15 @@
+1. Zrzut ekranu - zapis lokalny. Miniatura w panelu bocznym. Po klikniêciu - nowa karta z mo¿liwoœci¹ edycji. 
+(Jak siê nie uda umieœciæ tego w panelu bocznym, to ca³oœæ bêdzie uruchamiana w nowej karcie). 
+2. Szczegó³y zg³oszenia:
+	a. wersja systemu
+	b. wersja przegl¹darki
+	c. cookies
+	d. lista zainstalowanych innych dodatków?
+3. Przesy³anie przez API:
+	a. w pierwszym etapie - sam tekst
+	b. w drugim etapie - obrazek
+
+Materia³y:
+1. Przyk³adowe dodatki od chrome developer: https://developer.chrome.com/extensions/samples
+2. Dokumentacja chrome developer: https://developer.chrome.com/extensions/devguide
+3. Mantis api: https://documenter.getpostman.com/view/29959/mantis-bug-tracker-rest-api/7Lt6zkP
