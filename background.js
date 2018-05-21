@@ -13,7 +13,7 @@ var id = 100;
 chrome.browserAction.onClicked.addListener(function() {
 
   chrome.tabs.captureVisibleTab(function(screenshotUrl) {
-    var viewTabUrl = chrome.extension.getURL('ScreenshotPage.html?id=' + id++)
+    var viewTabUrl = chrome.extension.getURL('hello.html?id=' + id++)
     var targetId = null;
 
     chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {

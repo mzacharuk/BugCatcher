@@ -3,15 +3,16 @@
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css" type="text/css"/>
 	<script type="text/javascript" src="osdetails.js"></script>
+	<script src="screenshot.js"></script>
 
 </head>
     <body>
-      <h1 align="center">BugCatcher</h1>
-	  <h3 align="center">You gotta catch'em all!</h3>
+      <h1 align="left">BugCatcher</h1>
+	  <h3 align="left">You gotta catch'em all!</h3>
 		<div id = "BugCatcher">
 
-			<div align="center">Reproducibility </div>
-			<select align="center">
+			<div align="left">Reproducibility </div>
+			<select align="left">
   				<option value="always">Always</option>
   				<option value="sometimes">Sometimes</option>
   				<option value="random">Random</option>
@@ -20,7 +21,7 @@
  				<option value="na">N/A</option>
 			</select>
 
-			<div align="center">Severity </div>
+			<div align="left">Severity </div>
 			<select>
   				<option value="feature">Feature</option>
   				<option value="trivial">Trivial</option>
@@ -32,7 +33,7 @@
  				<option value="block">Block</option>
 			</select>
 
-			<div align="center">Priority </div>
+			<div align="left">Priority </div>
 			<select>
   				<option value="none">None</option>
   				<option value="blahy">Low</option>
@@ -42,18 +43,19 @@
  				<option value="wazny">Immediate</option>
 			</select>
 
-			<div align="center" width>Summary</div>
+			<div align="left" width>Summary</div>
 			<textarea style="height: 60px" placeholder="Name the bug :)"></textarea>
 
-			<div  align="center">Description</div>
+			<div  align="left">Description</div>
 			<textarea style="height: 160px" placeholder="Description of your bug. The character limit is 999"></textarea>
 
-			<div align="center">Details</div>
+			<div align="left">Details</div>
 			<textarea id = "details" style="height: 75px" placeholder="If you can't see information about your operating system, complete please"></textarea>
 
-			<div align="center">Attached photo</div>
-
-			<image width="250" height="250" src="media.jpg" >
+			<div align="right">
+			Attached photo
+			<img align="right" id="target" src="screenshot.png" height="768">
+			</div>
 
 			<div>
   				<input type="button" value="Report" style="display: block; margin: 0 auto;">
