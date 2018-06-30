@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     var button = document.getElementById("soap");
-    // onClick's logic below:
+	// onClick's logic below:
     button.addEventListener('click', soap);
 });
 
@@ -17,7 +17,7 @@ function soap() {
 							'<username xsi:type="xsd:string">administrator</username>'+
 							'<password xsi:type="xsd:string">root</password>'+
 							'<issue xsi:type="man:IssueData">'+
-								'<summary xsi:type="xsd:string">Summary test1</summary>'+
+								'<summary xsi:type="xsd:string">'+document.getElementById("summary").value+'</summary>'+
 								'<description xsi:type="xsd:string">testowy opis1</description>'+
 								'<project xsi:type="man:ObjectRef">'+
 									'<id xsi:type="xsd:integer">1</id>'+
