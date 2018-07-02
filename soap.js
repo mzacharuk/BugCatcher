@@ -18,7 +18,17 @@ function soap() {
 							'<password xsi:type="xsd:string">root</password>'+
 							'<issue xsi:type="man:IssueData">'+
 								'<summary xsi:type="xsd:string">'+document.getElementById("summary").value+'</summary>'+
-								'<description xsi:type="xsd:string">testowy opis1</description>'+
+								'<description xsi:type="xsd:string">'+document.getElementById("description").value+'</description>'+
+								'<reproducibility xsi:type="man:ObjectRef">'+
+									'<name xsi:type="xsd:string">'+document.getElementById("reproducibility").value+'</name>'+
+								'</reproducibility>'+
+								'<priority xsi:type="man:ObjectRef">'+
+								   '<name xsi:type="xsd:string">'+document.getElementById("priority").value+'</name>'+
+								'</priority>'+
+								'<severity xsi:type="man:ObjectRef">'+
+								   '<name xsi:type="xsd:string">'+document.getElementById("severity").value+'</name>'+
+								'</severity>'+
+								'<additional_information xsi:type="xsd:string">'+document.getElementById("details").value+'</additional_information>'+
 								'<project xsi:type="man:ObjectRef">'+
 									'<id xsi:type="xsd:integer">1</id>'+
 								'</project>'+

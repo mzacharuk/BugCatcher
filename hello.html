@@ -14,8 +14,8 @@
 		<form name="mainForm" method="post">
 		<div id = "BugCatcher">
 
-			<div align="left">Reproducibility </div>
-			<select align="left">
+			<div align="left">Reproducibility</div>
+			<select align="left" id="reproducibility">
   				<option value="always">Always</option>
   				<option value="sometimes">Sometimes</option>
   				<option value="random">Random</option>
@@ -24,8 +24,8 @@
  				<option value="na">N/A</option>
 			</select>
 
-			<div align="left">Severity </div>
-			<select>
+			<div align="left">Severity</div>
+			<select id="severity">
   				<option value="feature">Feature</option>
   				<option value="trivial">Trivial</option>
   				<option value="text">Text</option>
@@ -36,8 +36,8 @@
  				<option value="block">Block</option>
 			</select>
 
-			<div align="left">Priority </div>
-			<select>
+			<div align="left">Priority</div>
+			<select id="priority">
   				<option value="none">None</option>
   				<option value="blahy">Low</option>
   				<option value="tekst">Normal</option>
@@ -50,10 +50,10 @@
 			<textarea id="summary" style="height: 60px" placeholder="Name the bug :)"></textarea>
 
 			<div  align="left">Description</div>
-			<textarea style="height: 160px" placeholder="Description of your bug. The character limit is 999"></textarea>
+			<textarea id="description" style="height: 160px" placeholder="Description of your bug. The character limit is 999"></textarea>
 
 			<div align="left">Details</div>
-			<textarea id = "details" style="height: 75px" placeholder="If you can't see information about your operating system, complete please"></textarea>
+			<textarea id="details" style="height: 75px" placeholder="If you can't see information about your operating system, complete please"></textarea>
 
 			<div align="right">
 			Attached photo
