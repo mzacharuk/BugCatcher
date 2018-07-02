@@ -4,12 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', soap);
 });
 
+var idFromResponse;
+
 function soap() {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open('POST', 'http://localhost/mantisbt/api/soap/mantisconnect.php', true);
+			var response;
+			var parsedXML;
+			xmlParser = new DOMParser();
+			
+            var addIssueRequest = new XMLHttpRequest();
+            addIssueRequest.open('POST', 'http://localhost/mantisbt/api/soap/mantisconnect.php', true);
 
 			// build SOAP request
-            var sr =
+            var addIssue =
                 '<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://futureware.biz/mantisconnect" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">'+
 					'<soapenv:Header/>'+
 					'<soapenv:Body>'+
@@ -27,19 +33,53 @@ function soap() {
 							'</man:mc_issue_add>'+
 					'</soapenv:Body>'+
 					'</soapenv:Envelope>';
-
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4) {
-                    if (xmlhttp.status == 200) {
-                        alert('Zgłoszenie wysłąne do mantisa!');
+			
+            addIssueRequest.onreadystatechange = function () {
+                if (addIssueRequest.readyState == 4) {
+                    if (addIssueRequest.status == 200) {
+						response = addIssueRequest.responseText;
+						parsedXML = xmlParser.parseFromString(response,"text/xml");
+						idFromResponse = parsedXML.getElementsByTagName("return")[0].childNodes[0].nodeValue;
+						alert('Zgłoszenie o numerze '+idFromResponse+' wysłane do mantisa!');
+						addAttachmentRequest.send(addAttachment);
                     } else{
-						alert('Coś poszło nie tak. Sprawdź logi przeglądarki.');
+						alert('Coś poszło nie tak. Spróbuj ponownie.');
 					}
                 }
             }
-            // Send the POST request
-            xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-            xmlhttp.send(sr);
-            // send request
-            // ...
+
+
+            // Send the Issue
+            addIssueRequest.setRequestHeader('Content-Type', 'text/xml');
+            addIssueRequest.send(addIssue);
+			
+			
+			// Send the Attachment
+			
+			var addAttachmentRequest = new XMLHttpRequest();
+            addAttachmentRequest.open('POST', 'http://localhost/mantisbt/api/soap/mantisconnect.php', true);
+			var addAttachment = 
+				'<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://futureware.biz/mantisconnect">'+
+				   '<soapenv:Header/>'+
+				   '<soapenv:Body>'+
+						'<man:mc_issue_attachment_add soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'+
+							'<username xsi:type="xsd:string">administrator</username>'+
+							'<password xsi:type="xsd:string">root</password>'+
+							'<issue_id xsi:type="xsd:integer">'+idFromResponse+'</issue_id>'+
+							'<name xsi:type="xsd:string">ZrzutEkranuBugCatcher</name>'+
+							'<file_type xsi:type="xsd:string">jpg</file_type>'+
+							'<content xsi:type="xsd:base64Binary">'+document.getElementById('target').src.substr(23)+'</content>'+
+						'</man:mc_issue_attachment_add>'+
+					'</soapenv:Body>'+
+				'</soapenv:Envelope>';
+			addAttachmentRequest.onreadystatechange = function () {
+                if (addAttachmentRequest.readyState == 4) {
+                    if (addAttachmentRequest.status == 200) {
+						console.log("Załącznik wysłany");
+                    } else{
+						alert('Załącznik nie wysłany. Spróbuj ponownie.');
+					}
+                }
+            }
+			addAttachmentRequest.setRequestHeader('Content-Type', 'text/xml');
         }
