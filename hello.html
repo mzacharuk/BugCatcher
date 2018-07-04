@@ -2,20 +2,20 @@
 <head>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css" type="text/css"/>
-	<script type="text/javascript" src="osdetails.js"></script>
+	<script type="text/javascript" src="versionOfBrowser.js"></script>
 	<script src="screenshot.js"></script>
 	<script src="soap.js"></script>
 	
 
 </head>
     <body>
-      <h1 align="left">BugCatcher</h1>
-	  <h3 align="left">You gotta catch'em all!</h3>
+      <h1 align="center">BugCatcher</h1>
+	  <h3 align="center">You gotta catch'em all!</h3>
 		<form name="mainForm" method="post">
 		<div id = "BugCatcher">
 
-			<div align="left">Reproducibility</div>
-			<select align="left" id="reproducibility">
+			<div align="center">Reproducibility</div>
+			<select align="center" id="reproducibility">
   				<option value="always">Always</option>
   				<option value="sometimes">Sometimes</option>
   				<option value="random">Random</option>
@@ -24,7 +24,7 @@
  				<option value="na">N/A</option>
 			</select>
 
-			<div align="left">Severity</div>
+			<div align="center">Severity</div>
 			<select id="severity">
   				<option value="feature">Feature</option>
   				<option value="trivial">Trivial</option>
@@ -36,7 +36,7 @@
  				<option value="block">Block</option>
 			</select>
 
-			<div align="left">Priority</div>
+			<div align="center">Priority</div>
 			<select id="priority">
   				<option value="none">None</option>
   				<option value="blahy">Low</option>
@@ -46,22 +46,25 @@
  				<option value="wazny">Immediate</option>
 			</select>
 
-			<div align="left" width>Summary</div>
-			<textarea id="summary" style="height: 60px" placeholder="Name the bug :)"></textarea>
+			<div align="center" width>Summary</div>
+			<textarea id="summary" lign="center"style="height: 60px"  placeholder="Name the bug :)"></textarea>
 
-			<div  align="left">Description</div>
+			<div  align="center">Description</div>
+
 			<textarea id="description" style="height: 160px" placeholder="Description of your bug. The character limit is 999"></textarea>
 
-			<div align="left">Details</div>
-			<textarea id="details" style="height: 75px" placeholder="If you can't see information about your operating system, complete please"></textarea>
+			<!-- 
+			<div align="center">Details</div> 
+				<textarea id="details" style="height: 75px" placeholder="If you can't see information about your operating system, complete please"></textarea>
+			 -->
 
-			<div align="right">
+			<div align="center">
 			Attached photo
-			<img align="right" id="target" src="screenshot.png" height="768">
+			<img align="center" id="target" src="screenshot.png" width="1200">
 			</div>
-
+						
 			<div>
-  				<input type="button" value="Report" style="display: block; margin: 0 auto;" id="soap"/>
+  				<input type="button" backgound = 'red' value="Report" style="display: block; margin: 0 auto;" id="soap"/>
 			</div>
 		</div> 
 		</form>
