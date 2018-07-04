@@ -67,7 +67,6 @@ function soap() {
 								'<severity xsi:type="man:ObjectRef">'+
 								   '<name xsi:type="xsd:string">'+document.getElementById("severity").value+'</name>'+
 								'</severity>'+
-								'<additional_information xsi:type="xsd:string">'+document.getElementById("details").value+'</additional_information>'+
 								'<project xsi:type="man:ObjectRef">'+
 									'<id xsi:type="xsd:integer">1</id>'+
 								'</project>'+
